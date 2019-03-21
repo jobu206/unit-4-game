@@ -59,19 +59,24 @@ span.magicNum {
     margin-top: 50px;
     margin-left: 10%;
 }
-#ruby {
-    width: 185px;
-    height: 200px;
+#blackCrystal {
+    width: 75px;
+    height: 75px;
 }
 
-#emerald {
-    width: 150px;
-    height: 120px;
+#purpleCrystal {
+    width: 75px;
+    height: 75px;
 }
 
-#diamond {
-    width: 150px;
-    height: 145px;
+#greenCrystal {
+    width: 75px;
+    height: 75px;
+}
+
+#redCrystal {
+    width: 75px;
+    height: 75px;
 }
 
 .list-item {
