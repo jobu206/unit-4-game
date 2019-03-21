@@ -1,6 +1,6 @@
 /*
-TODO: - Goal of game is to click each of the 4 crytals in order to hit the Magic Number
-TODO: - Single number give randomly (aka Magic Number)
+DONE: - Goal of game is to click each of the 4 crytals in order to hit the Magic Number
+DONE: - Single number given randomly (aka Magic Number)
 TODO: - Every crystal needs to have a randomly generated number
 TODO: - Each time a crystal is clicked we will add previous score to new score until number is either the same or goes over magic number.
 TODO: - If number goes over magic number, we lose
@@ -16,47 +16,65 @@ $(document).ready(function () {
     var score = 0;
     var wins = 0;
     var losses = 0;
-    var blackCrystal = Math.floor(Math.random() * 10 + 1);
-    var purpleCrystal = Math.floor(Math.random() * 10 + 1);
-    var greenCrystal = Math.floor(Math.random() * 10 + 1);
-    var redCrystal = Math.floor(Math.random() * 10 + 1);
 
-    // Set magic number and display
-    var magicNum = Math.floor(Math.random() * 10 + 1);
-
-
-    // function to set new game
-	function newGame() {
-		newNums();
-		totalScore = 0;
-		$("#magicNumber").text(magicNum);
-		$("#totalScore").text(score);
-		$("#blackCrystal").attr("crystalvalue", blackCrystal);
-		$("#purpleCrystal").attr("crystalvalue", purpleCrystal);
-		$("#greenCrystal").attr("crystalvalue", greenCrystal);
-		$("#redCrystal").attr("crystalvalue", redCrystal);
-		$("#wins").text(wins);
-		$("#losses").text(losses);
-		$("#winOrLose").text("");
+    // random numbers via min/max
+    function randomNums(min,max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + 1);
     }
 
-    // function for winning
-    function youWon() {
-        if (score === magicNum){
-            win+=1;
+    // get magic number
+    var magicNum = randomNums(1,70);
+    $("#magicNum").html(magicNum);
 
+    // get crystal values via random numbers
+    var blackCrystal = randomNums(3,20);
+    var purpleCrystal = randomNums(3,20);
+    var greenCrystal = randomNums(3,20);
+    var redCrystal = randomNums(3,20);
+
+    // reset vars
+    function reset() {
+        score = 0;
+        $("#totalScore").html(magicNum);
+        playerScore = 0;
+        blackCrystal = randomNums(3,20);
+        purpleCrystal = randomNums(3,20);
+        greenCrystal = randomNums(3,20);
+        redCrystal = randomNums(3,20);
+    }
+
+    // set on click events
+    $("#blackCrystal").on("click", function () {
+        score += blackCrystal;
+        winsLosses();
+        $("#playerScore").text(playerScore);
+    });
+
+    $("#purpleCrystal").on("click", function () {
+        score += purpleCrystal;
+        winsLosses();
+        $("#playerScore").text(playerScore);
+    });
+
+    $("#greenCrystal").on("click", function () {
+        score += greenCrystal;
+        winsLosses();
+        $("#playerScore").text(playerScore);
+    });
+
+    $("#redCrystal").on("click", function () {
+        score += redCrystal;
+        winsLosses();
+        $("#playerScore").text(playerScore);
+    });
+
+    // Set wins/losses function
+    function winsLosses() {
+        if (score === magicNum) {
+            wins++;
+            
         }
     }
-
-
-    // function for losing
-
-    
-    // call new game again to reset game board
- 
-
-    // add values for score
-
-
-    // conditionals for verifying 
 });
