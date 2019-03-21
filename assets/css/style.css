@@ -94,6 +94,10 @@ p + p {
     padding-top: 10px;
 }
 
+.scoreRow {
+    margin-top: 150px;
+}
+
 .reset {
 	margin-left: auto;
 	margin-right: auto;
