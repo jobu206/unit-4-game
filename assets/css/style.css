@@ -96,6 +96,7 @@ p + p {
 
 .scoreRow {
     margin-top: 150px;
+    margin-block-end: 150px;
 }
 
 .reset {

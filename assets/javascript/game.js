@@ -26,7 +26,7 @@ $(document).ready(function () {
 
     // get magic number
     var magicNum = randomNums(1,70);
-    $("#magicNum").html(magicNum);
+    $("#magicNum").text(magicNum);
 
     // get crystal values via random numbers
     var blackCrystal = randomNums(3,20);
@@ -34,10 +34,11 @@ $(document).ready(function () {
     var greenCrystal = randomNums(3,20);
     var redCrystal = randomNums(3,20);
 
+
     // reset vars
     function reset() {
         score = 0;
-        $("#totalScore").html(magicNum);
+        $(score).text(magicNum);
         playerScore = 0;
         blackCrystal = randomNums(3,20);
         purpleCrystal = randomNums(3,20);
@@ -49,38 +50,40 @@ $(document).ready(function () {
     $("#blackCrystal").on("click", function () {
         score += blackCrystal;
         winsLosses();
-        $(playerScore).html(playerScore);
+        $("#playerScore").text(score);
     });
 
     $("#purpleCrystal").on("click", function () {
         score += purpleCrystal;
         winsLosses();
-        $(playerScore).html(playerScore);
+        $("#playerScore").text(score);
     });
 
     $("#greenCrystal").on("click", function () {
         score += greenCrystal;
         winsLosses();
-        $(playerScore).html(playerScore);
+        $("#playerScore").text(score);
     });
 
     $("#redCrystal").on("click", function () {
         score += redCrystal;
         winsLosses();
-        $(playerScore).html(playerScore);
+        $("#playerScore").text(score);
     });
 
     // Set wins/losses function
     function winsLosses() {
         if (score === magicNum) {
             wins++;
+            console.log("you won");
             alert("Congrats on the win!!");
-            $(wins).html(wins);
+            $("#wins").text(wins);
             reset();
         } else if (score > magicNum) {
             losses++;
+            console.log("you lost");
             alert("My condolences on your loss.");
-            $(losses).html(losses);
+            $("#losses").text(losses);
             reset();
         }
     }
