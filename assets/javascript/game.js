@@ -41,6 +41,7 @@ $(document).ready(function () {
         $(score).text(magicNum);
         playerScore = 0;
         magicNum = randomNums(19,120);
+        $("#magicNum").text(magicNum);
         blackCrystal = randomNums(1,12);
         purpleCrystal = randomNums(1,12);
         greenCrystal = randomNums(1,12);
@@ -88,8 +89,6 @@ $(document).ready(function () {
             $("#losses").text(losses);
             $("#wins").text(wins);
             reset();
-        }
-
-        
+        }        
     }
 });
