@@ -1,13 +1,13 @@
 /*
 DONE: - Goal of game is to click each of the 4 crytals in order to hit the Magic Number
 DONE: - Single number given randomly (aka Magic Number)
-TODO: - Every crystal needs to have a randomly generated number
-TODO: - Each time a crystal is clicked we will add previous score to new score until number is either the same or goes over magic number.
-TODO: - If number goes over magic number, we lose
+DONE: - Every crystal needs to have a randomly generated number
+DONE: - Each time a crystal is clicked we will add previous score to new score until number is either the same or goes over magic number.
+DONE: - If number goes over magic number, we lose
     - decrement loss
-TODO: - If number matches magic number, we win
+DONE: - If number matches magic number, we win
     - increment wins
-TODO: - Random number is generated each time player clicks new game button
+DONE: - Random number is generated each time player clicks new game button
     - start over
 */
 
@@ -77,14 +77,12 @@ $(document).ready(function () {
     function winsLosses() {
         if (score === magicNum) {
             wins++;
-            // console.log("you won");
             alert("Congrats on the win!!");
             $("#wins").text(wins);
             $("#losses").text(losses);
             reset();
         } else if (score > magicNum) {
             losses++;
-            // console.log("you lost");
             alert("My condolences on your loss.");
             $("#losses").text(losses);
             $("#wins").text(wins);
