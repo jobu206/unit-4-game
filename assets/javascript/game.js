@@ -49,32 +49,39 @@ $(document).ready(function () {
     $("#blackCrystal").on("click", function () {
         score += blackCrystal;
         winsLosses();
-        $("#playerScore").text(playerScore);
+        $(playerScore).html(playerScore);
     });
 
     $("#purpleCrystal").on("click", function () {
         score += purpleCrystal;
         winsLosses();
-        $("#playerScore").text(playerScore);
+        $(playerScore).html(playerScore);
     });
 
     $("#greenCrystal").on("click", function () {
         score += greenCrystal;
         winsLosses();
-        $("#playerScore").text(playerScore);
+        $(playerScore).html(playerScore);
     });
 
     $("#redCrystal").on("click", function () {
         score += redCrystal;
         winsLosses();
-        $("#playerScore").text(playerScore);
+        $(playerScore).html(playerScore);
     });
 
     // Set wins/losses function
     function winsLosses() {
         if (score === magicNum) {
             wins++;
-            
+            alert("Congrats on the win!!");
+            $(wins).html(wins);
+            reset();
+        } else if (score > magicNum) {
+            losses++;
+            alert("My condolences on your loss.");
+            $(losses).html(losses);
+            reset();
         }
     }
 });
