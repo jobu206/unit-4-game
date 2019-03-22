@@ -25,14 +25,14 @@ $(document).ready(function () {
     }
 
     // get magic number
-    var magicNum = randomNums(1,70);
+    var magicNum = randomNums(19,120);
     $("#magicNum").text(magicNum);
 
     // get crystal values via random numbers
-    var blackCrystal = randomNums(3,20);
-    var purpleCrystal = randomNums(3,20);
-    var greenCrystal = randomNums(3,20);
-    var redCrystal = randomNums(3,20);
+    var blackCrystal = randomNums(1,12);
+    var purpleCrystal = randomNums(1,12);
+    var greenCrystal = randomNums(1,12);
+    var redCrystal = randomNums(1,12);
 
 
     // reset vars
@@ -40,10 +40,11 @@ $(document).ready(function () {
         score = 0;
         $(score).text(magicNum);
         playerScore = 0;
-        blackCrystal = randomNums(3,20);
-        purpleCrystal = randomNums(3,20);
-        greenCrystal = randomNums(3,20);
-        redCrystal = randomNums(3,20);
+        magicNum = randomNums(19,120);
+        blackCrystal = randomNums(1,12);
+        purpleCrystal = randomNums(1,12);
+        greenCrystal = randomNums(1,12);
+        redCrystal = randomNums(1,12);
     }
 
     // set on click events
@@ -75,16 +76,20 @@ $(document).ready(function () {
     function winsLosses() {
         if (score === magicNum) {
             wins++;
-            console.log("you won");
+            // console.log("you won");
             alert("Congrats on the win!!");
             $("#wins").text(wins);
+            $("#losses").text(losses);
             reset();
         } else if (score > magicNum) {
             losses++;
-            console.log("you lost");
+            // console.log("you lost");
             alert("My condolences on your loss.");
             $("#losses").text(losses);
+            $("#wins").text(wins);
             reset();
         }
+
+        
     }
 });
